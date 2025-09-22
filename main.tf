@@ -61,11 +61,11 @@ locals {
 }
 
 resource "aws_instance" "first_instance" {
-  ami           = "ami-0886832e6b5c3b9e2" // AMI Amazon Linux 2
-  instance_type = "t2.micro"
-  subnet_id     = data.aws_subnets.default.ids[0]
+  ami             = "ami-0886832e6b5c3b9e2" // AMI Amazon Linux 2
+  instance_type   = "t2.micro"
+  subnet_id       = data.aws_subnets.default.ids[0]
   security_groups = [aws_security_group.ec2_sg.id]
-  key_name = "keyPairGmricardo3"
+  key_name        = "keyPairGmricardo3"
 
   // Script de inicialización para instalar httpd y mostrar la IP privada
   user_data = <<-EOF
@@ -90,11 +90,11 @@ resource "aws_instance" "first_instance" {
 }
 
 resource "aws_instance" "second_instance" {
-  ami           = "ami-0886832e6b5c3b9e2"
-  instance_type = "t2.micro"
-  subnet_id     = data.aws_subnets.default.ids[1]
+  ami             = "ami-0886832e6b5c3b9e2"
+  instance_type   = "t2.micro"
+  subnet_id       = data.aws_subnets.default.ids[1]
   security_groups = [aws_security_group.ec2_sg.id]
-  key_name = "keyPairGmricardo3"
+  key_name        = "keyPairGmricardo3"
 
   user_data = <<-EOF
     #!/bin/bash
